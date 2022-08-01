@@ -21,11 +21,10 @@ def delete_from_ims():
         if msg.user == s.myself:
           msg.delete(replies=True, files=True)
 
-
 print_stuff()
 
-# delete all messages from a channel channels
+# delete all messages from a channel
 # delete_from_channel()
 
-# Delete all direct messages between you and another user
+# Delete all messages between you and another user (ims)
 # delete_from_ims()
