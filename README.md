@@ -5,8 +5,8 @@ Simple example script to bulk-delete Slack messages.
 
 ```bash
 # Build the Docker image
-docker build -t slack_cleaner .
+docker build -t slack-cleaner .
 
 # Run the script inside a container
-cat script.py | docker run -i --rm -e SLACK_TOKEN=[token-here] slack_cleaner
+cat script.py | docker run -i --rm -e SLACK_TOKEN=[token-here] slack-cleaner
 ```
