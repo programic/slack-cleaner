@@ -8,13 +8,13 @@ def print_stuff(s):
     print('instant messages', s.ims)
     print('multi user direct messages', s.mpim)
 
-def delete_from_channel(s):
-    for msg in s.c['bot-alerts-red'].msgs():
+def delete_from_channel(s, channel):
+    for msg in s.c[channel].msgs():
         msg.delete(replies=True, files=True)
 
-def delete_from_ims(s):
+def delete_from_ims(s, user):
     for c in s.ims:
-        if c.name == 'j.doe':
+        if c.name == user:
             for msg in c.msgs():
                 if msg.user == s.myself:
                     msg.delete(replies=True, files=True)
@@ -22,11 +22,13 @@ def delete_from_ims(s):
 def main():
     s = SlackCleaner(os.getenv('SLACK_TOKEN'))
 
-    print_stuff(s)
+    # print_stuff(s)
+
     # delete all messages from a channel
-#     delete_from_channel(s)
+    delete_from_channel(s, 'bot-alerts-devops')
+
     # Delete all messages between you and another user (ims)
-#     delete_from_ims(s)
+    # delete_from_ims(s, 'j.doe')
 
 if __name__ == '__main__':
     main()
